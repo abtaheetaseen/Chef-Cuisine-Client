@@ -7,7 +7,7 @@ import auth from '../firebase/firebase.config';
 
 const Register = () => {
 
-    const {createUser, setName, setPhotoURL} = useContext(AuthContext);
+    const { createUser, setName, setPhotoURL } = useContext(AuthContext);
     const navigate = useNavigate();
     const providerGoogle = new GoogleAuthProvider();
 
@@ -22,14 +22,13 @@ const Register = () => {
             name,
             photoURL,
             email,
-            password
         }
 
         // pass validation
-        if(!/[A-Z]/.test(password)){
+        if (!/[A-Z]/.test(password)) {
             toast.error("Password must have at least one capital letter");
             return;
-        } else if(!/[a-z]/.test(password)){
+        } else if (!/[a-z]/.test(password)) {
             toast.error("Password must have at least one small letter");
             return;
         }
@@ -45,14 +44,27 @@ const Register = () => {
                 navigate("/");
 
                 // update profile
-            updateProfile(result.user, {
-                displayName: name,
-                photoURL: photoURL
-            })
-            .then(() => console.log("profile updated"))
-            .catch(error => {
-                console.log(error.message)
-            })
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photoURL
+                })
+                    .then(() => console.log("profile updated"))
+                    .catch(error => {
+                        console.log(error.message)
+                    })
+
+                //  send to backend server
+                fetch("http://localhost:3000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                    })
 
             })
             .catch((error) => {
@@ -63,14 +75,30 @@ const Register = () => {
 
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, providerGoogle)
-        .then(result => {
-            console.log(result.user)
-            toast.success("User registered successfully");
-            navigate("/");
-        })
-        .catch((error) => {
-            console.log(error.message)
-        });
+            .then(result => {
+                console.log(result.user)
+                toast.success("User registered successfully");
+                //  send to backend server
+                fetch("http://localhost:3000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: result.user.displayName, 
+                        email: result.user.email,
+                        photoURL: result.user.photoURL,
+                    })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                    })
+                navigate("/");
+            })
+            .catch((error) => {
+                console.log(error.message)
+            });
     }
 
     return (
@@ -130,7 +158,7 @@ const Register = () => {
 
                     <div className="mt-6">
                         <input className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#ECBD00] rounded-lg hover:bg-transparent hover:text-black hover:border-2 hover:border-[#ECBD00]" type="submit" value="Register" />
-                        
+
 
                         <p className="mt-4 text-center text-gray-600 dark:text-gray-400">or register with</p>
 
