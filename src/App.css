@@ -11,3 +11,24 @@
     background-size: cover;
     background-position: center;
 }
+
+.chef1-bg{
+    background: linear-gradient(180deg, rgba(19, 19, 24, 0.80) 0%, rgba(19, 19, 24, 0.00) 100%), url(./assets/images/chef1.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.chef2-bg{
+    background: linear-gradient(180deg, rgba(19, 19, 24, 0.80) 0%, rgba(19, 19, 24, 0.00) 100%), url(./assets/images/chef2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.chef3-bg{
+    background: linear-gradient(180deg, rgba(19, 19, 24, 0.80) 0%, rgba(19, 19, 24, 0.00) 100%), url(./assets/images/chef3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

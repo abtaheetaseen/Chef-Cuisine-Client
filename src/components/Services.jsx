@@ -8,7 +8,7 @@ const Services = () => {
   return (
     <>
 
-<div data-aos="fade-down" className='text-center w-10/12 mx-auto my-[50px]'>
+<div className='text-center w-10/12 mx-auto my-[50px]'>
         <h1 className='text-3xl font-extrabold mb-3'>Services We Offer</h1>
         <p>We live in a wonderful world that is full of beauty, charm and adventure. There is no end to the adventures we can have if only we seek them with our eyes open. Food - it leaves you speechless, then turns you into a chef.</p>
     </div>
