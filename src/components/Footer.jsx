@@ -17,7 +17,7 @@ const Footer = () => {
 
                     <div className="flex mt-6 -mx-2">
                         <a href="#"
-                            className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                            className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-[#ECBD00] dark:hover:text-[#ECBD00]"
                             aria-label="Reddit">
                             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -27,7 +27,7 @@ const Footer = () => {
                         </a>
                     
                         <a href="#"
-                            className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                            className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-[#ECBD00] dark:hover:text-[#ECBD00]"
                             aria-label="Facebook">
                             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -37,7 +37,7 @@ const Footer = () => {
                         </a>
                     
                         <a href="#"
-                            className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                            className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-[#ECBD00] dark:hover:text-[#ECBD00]"
                             aria-label="Github">
                             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -52,28 +52,28 @@ const Footer = () => {
             <div className="mt-6 lg:mt-0 lg:flex-1">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     <div>
-                        <h3 className="text-gray-700 uppercase dark:text-white">About</h3>
+                        <h3 className="text-[#ECBD00] uppercase">About</h3>
                         <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Company</a>
                         <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Community</a>
                         <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Careers</a>
                     </div>
 
                     <div>
-                        <h3 className="text-gray-700 uppercase dark:text-white">We Provide</h3>
+                        <h3 className="text-[#ECBD00] uppercase">We Provide</h3>
                         <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Burger</a>
                         <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Sub Burger</a>
                         <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Pizza</a>
                     </div>
 
                     <div>
-                        <h3 className="text-gray-700 uppercase dark:text-white">Blog</h3>
+                        <h3 className="text-[#ECBD00] uppercase">Blog</h3>
                         <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Food</a>
                         <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Chef</a>
                         <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Videos</a>
                     </div>
 
                     <div>
-                        <h3 className="text-gray-700 uppercase dark:text-white">Contact</h3>
+                        <h3 className="text-[#ECBD00] uppercase">Contact</h3>
                         <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">+8801931183851</span>
                         <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">abtahee@gmail.com</span>
                     </div>
