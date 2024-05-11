@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import { AuthContext } from '../provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const PurchasePage = () => {
 
@@ -9,15 +10,42 @@ const PurchasePage = () => {
     const food = useLoaderData();
     console.log(food)
 
-    const {_id, foodName, category, price} = food;
+    const {_id, foodName, price, email, quantity} = food;
 
     const handlePurchase = (e) => {
         e.preventDefault();
-        const form = form.reset();
+        if(user?.email === email) {
+            return toast.error("You can't purchase your own food.")
+        }
 
         
+        const form = e.target;
+
+        const foodId = _id;
+        const foodName = form.foodName.value;
+        const price = form.price.value;
+        const buyingTime = form.buyingTime.value;
+        const buyerName = form.name.value;
+        const buyerEmail = form.email.value;
+        const buyerQuantity = form.quantity.value;
+        if(buyerQuantity > quantity){
+            return toast.error("Item is not available")
+        }
+
+        const orderedFood = {
+            foodId,
+            foodName,
+            price,
+            buyerQuantity,
+            buyingTime,
+            buyerName,
+            buyerEmail
+        }
+
+        console.log(orderedFood)
     }
 
+    // input date field
     const date = new Date();
     const displayTime = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
 
@@ -29,22 +57,22 @@ const PurchasePage = () => {
         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             <div>
                 <label className="text-gray-700 dark:text-gray-200" htmlFor="foodName">Food Name</label>
-                <input id="foodName" name='foodName' type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" disabled defaultValue={foodName} />
+                <input id="foodName" name='foodName' type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" readOnly={true} defaultValue={foodName} />
             </div>
 
             <div>
-                <label className="text-gray-700 dark:text-gray-200" htmlFor="quantity">Quantity</label>
-                <input id="quantity" name='quantity' type="number" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                <label className="text-gray-700 dark:text-gray-200" htmlFor="quantity">Available Quantity : {quantity}</label>
+                <input id="quantity" name='quantity' type="number" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required />
             </div>
 
             <div>
-                <label className="text-gray-700 dark:text-gray-200" htmlFor="quantity">Buying Time</label>
-                <input id="quantity" name='quantity' type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" readOnly={true} value={displayTime}/>
+                <label className="text-gray-700 dark:text-gray-200" htmlFor="buyingTime">Buying Time</label>
+                <input id="buyingTime" name='buyingTime' type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" readOnly={true} value={displayTime}/>
             </div>
 
             <div>
                 <label className="text-gray-700 dark:text-gray-200" htmlFor="price">Price ($)</label>
-                <input id="price" name='price' type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" disabled defaultValue={price} />
+                <input id="price" name='price' type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" readOnly={true} defaultValue={price} />
             </div>
 
             <div>
