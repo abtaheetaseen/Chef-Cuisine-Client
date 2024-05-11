@@ -36,7 +36,7 @@ const FoodDetails = () => {
             </div>
 
             <div className='flex items-center justify-end'>
-        <Link>
+        <Link to={`/purchasePage/${_id}`}>
             <button className='btn btn-sm bg-[#ECBD00] border-none text-white hover:bg-[#ffe371] tracking-widest'>
                 Purchase
             </button>
