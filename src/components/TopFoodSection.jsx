@@ -21,7 +21,7 @@ const TopFoodSection = () => {
         <p>If you really want to make a friend, go to someone's house and eat with him... the people who give you their food give you their heart. Cooking is at once child's play and adult joy.</p>
     </div>
 
-    <div className='w-10/12 mx-auto mt-0 mb-[50px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10'>
+    <div className='w-10/12 mx-auto mt-0 mb-[50px] grid grid-cols-1 lg:grid-cols-2 gap-10'>
         {
             foods.slice(0, 6).map(food => <TopFood food={food} key={food._id} />)
         }
