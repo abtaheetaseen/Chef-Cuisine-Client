@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
 import { AuthContext } from '../provider/AuthProvider';
+import profile from "../assets/images/profile.png"
 
 const FoodDetails = () => {
 
@@ -29,7 +30,7 @@ const FoodDetails = () => {
         <div className="mt-5 grid grid-cols-2">
             <div className="flex items-center">
                 <div className="flex items-center">
-                <img className="object-cover h-10 rounded-xl" src={user?.photoURL} alt="Avatar" />
+                <img className="object-cover h-10 rounded-xl border-2 border-gray-500" src={profile} alt="Avatar" />
                     <p className="mx-2 font-semibold text-gray-700 dark:text-gray-200">{name.toUpperCase()}</p>
                 </div>
                 <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">{email}</span>
