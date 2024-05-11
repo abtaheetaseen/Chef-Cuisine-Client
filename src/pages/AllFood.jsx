@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AllFood = ({food}) => {
 
-    const {foodName, foodImage, category, price, quantity} = food;
+    const {_id, foodName, foodImage, category, price, quantity} = food;
 
   return (
     <div className='grid grid-cols-6 gap-5 border-2 border-gray-400 rounded-xl'>
@@ -17,7 +17,7 @@ const AllFood = ({food}) => {
             <p className='text-[15px] font-bold text-gray-500 mb-5'>*{category}</p>
             <p className='font-bold mb-3'>Price : ${price}</p>
             <p className='font-bold mb-3'>Quantity : {quantity}</p>
-            <Link>
+            <Link to={`/allFoods/${_id}`}>
                 <button className='btn btn-sm bg-[#ECBD00] border-none text-white hover:bg-[#ffe371]'>
                     Show Details
                 </button>
