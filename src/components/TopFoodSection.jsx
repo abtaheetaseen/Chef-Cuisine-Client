@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TopFood from './TopFood';
+import { Link } from 'react-router-dom';
 
 const TopFoodSection = () => {
 
@@ -25,6 +26,14 @@ const TopFoodSection = () => {
         {
             foods.slice(0, 6).map(food => <TopFood food={food} key={food._id} />)
         }
+    </div>
+
+    <div className='flex items-center justify-center mb-[50px]'>
+        <Link to="/allFoods">
+            <button className='btn bg-[#ECBD00] border-none text-white hover:bg-[#ffe371] tracking-widest'>
+                Our All Food
+            </button>
+        </Link>
     </div>
     </>
   )
