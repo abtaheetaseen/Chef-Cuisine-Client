@@ -31,7 +31,8 @@ export const Router = createBrowserRouter([
             },
             {
                 path: "/allFoods",
-                element: <AllFoods />
+                element: <AllFoods />,
+                loader: () => fetch("http://localhost:3000/allFoods")
             },
             {
                 path: "/gallery",
