@@ -25,11 +25,11 @@ const PurchasePage = () => {
 
         const foodId = _id;
         const foodName = form.foodName.value;
-        const price = form.price.value;
+        const price = parseFloat(form.price.value);
         const buyingTime = form.buyingTime.value;
         const buyerName = form.name.value;
         const buyerEmail = form.email.value;
-        const buyerQuantity = form.quantity.value;
+        const buyerQuantity = parseInt(form.quantity.value);
         if(buyerQuantity > quantity){
             return toast.error("Item is not available")
         }
