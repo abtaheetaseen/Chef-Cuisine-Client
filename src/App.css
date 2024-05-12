@@ -39,3 +39,17 @@
     background-size: cover;
     background-position: center;
 }
+
+.addFood-bg{
+    background: linear-gradient(180deg, rgba(19, 19, 24, 0.80) 0%, rgba(19, 19, 24, 0.00) 100%), url(./assets/images/xtra1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.updateFood-bg{
+    background: linear-gradient(180deg, rgba(19, 19, 24, 0.80) 0%, rgba(19, 19, 24, 0.00) 100%), url(./assets/images/xtra2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

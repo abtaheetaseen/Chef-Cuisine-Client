@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const TopFood = ({food}) => {
+const MyAddedFoodItemCard = ({food}) => {
 
     const {_id, foodName, foodImage, category, price} = food;
 
@@ -16,15 +16,17 @@ const TopFood = ({food}) => {
             <h1 className='text-2xl tracking-widest font-medium'>{foodName}</h1>
             <p className='text-[15px] font-bold text-gray-500 mb-5'>*{category}</p>
             <p className='font-bold mb-3'>Price : ${price}</p>
-            <Link to={`/allFoods/${_id}`}>
+            <div>
+                <Link to={`/updatePage/${_id}`}>
                 <button className='btn btn-sm bg-[#ECBD00] border-none text-white hover:bg-[#ffe371]'>
-                    Show Details
+                    Update
                 </button>
-            </Link>
+                </Link>
+            </div>
         </div>
       </div>
     </div>
   )
 }
 
-export default TopFood
+export default MyAddedFoodItemCard

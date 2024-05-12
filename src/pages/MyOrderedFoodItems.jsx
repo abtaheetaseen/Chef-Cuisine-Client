@@ -59,6 +59,8 @@ const MyOrderedFoodItems = () => {
 
   return (
     <>
+    <div className='lg:min-h-[70vh] lg:flex lg:items-center lg:justify-center'>
+        <div>
     <div className='text-center w-10/12 mx-auto my-[50px]'>
       <h1 className='text-2xl tracking-widest bg-[#ECBD00] text-white p-1 rounded-lg'>My Ordered Items : {myOrderedFoodItems.length}</h1>
     </div>
@@ -99,7 +101,8 @@ const MyOrderedFoodItems = () => {
   </table>
 </div>
     </div>
-
+    </div>
+    </div>
     </>
   )
 }

@@ -33,6 +33,9 @@ const PurchasePage = () => {
         if(buyerQuantity > quantity){
             return toast.error("Item is not available")
         }
+        if(buyerQuantity > 20) {
+            return toast.error("You cannot purchase more than 20.")
+        }
 
         const orderedFood = {
             foodId,
