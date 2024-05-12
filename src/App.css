@@ -53,3 +53,18 @@
     background-size: cover;
     background-position: center;
 }
+
+button{
+    background-color: #ECBD00;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+button:hover{
+    background-color: #ffdc51;
+    scale: 1.2;
+}
+
+.selected{
+    background-color: rgb(255, 84, 45);
+}
