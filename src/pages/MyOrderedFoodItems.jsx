@@ -12,7 +12,7 @@ const MyOrderedFoodItems = () => {
 
     const url = `http://localhost:3000/orders?email=${user?.email}`;
     useEffect(() => {
-        fetch(url)
+        fetch(url, {credentials: "include"})
         .then(res => res.json())
         .then(data => {
             setMyOrderedFoodItems(data);
