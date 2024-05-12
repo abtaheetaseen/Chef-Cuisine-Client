@@ -12,7 +12,7 @@ const PurchasePage = () => {
     const food = useLoaderData();
     console.log(food)
 
-    const {_id, foodName, price, email, quantity} = food;
+    const {_id, foodImage, foodName, price, email, quantity} = food;
 
     const handlePurchase = (e) => {
         e.preventDefault();
@@ -41,7 +41,8 @@ const PurchasePage = () => {
             buyerQuantity,
             buyingTime,
             buyerName,
-            buyerEmail
+            buyerEmail,
+            foodImage: foodImage
         }
 
         console.log(orderedFood)
@@ -57,7 +58,7 @@ const PurchasePage = () => {
         .then(data => {
             console.log(data)
             if(data.insertedId){
-                toast.success("Your order has been confirmed.")
+                toast.success("Your order has confirmed.")
                 form.reset();
                 navigate("/")
             }
