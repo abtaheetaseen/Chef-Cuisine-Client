@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
 
 const PurchasePage = () => {
 
     const {user} = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const food = useLoaderData();
     console.log(food)
@@ -43,6 +45,23 @@ const PurchasePage = () => {
         }
 
         console.log(orderedFood)
+
+        fetch("http://localhost:3000/orders", {
+            method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(orderedFood)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.insertedId){
+                toast.success("Your order has been confirmed.")
+                form.reset();
+                navigate("/")
+            }
+        })
     }
 
     // input date field
