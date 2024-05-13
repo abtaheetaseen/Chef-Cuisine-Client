@@ -63,6 +63,7 @@ const Navbar = () => {
 
         {
             user && (
+                <>
                 <div className='dropdown dropdown-end z-50'>
           <div
             tabIndex={0}
@@ -99,11 +100,15 @@ const Navbar = () => {
             </li>
             </NavLink>
 
-            <li className=''>
+            {/* <li className=''>
               <button onClick={handleLogOut} className='btn btn-sm btn-error text-white block text-center'>Logout</button>
-            </li>
+            </li> */}
           </ul>
         </div>
+        <div className='ml-2'>
+              <button onClick={handleLogOut} className='btn btn-sm btn-error text-white block text-center'>Logout</button>
+            </div>
+        </>
             ) 
         }
       </div>

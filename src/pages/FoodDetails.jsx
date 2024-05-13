@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
 import profile from "../assets/images/profile.png"
 import { Helmet } from 'react-helmet-async';
+import { AuthContext } from '../provider/AuthProvider';
 
 const FoodDetails = () => {
+
+    const {user} = useContext(AuthContext);
 
     const singleFood = useLoaderData();
     console.log(singleFood)
@@ -39,11 +42,24 @@ const FoodDetails = () => {
             </div>
 
             <div className='flex items-center justify-end'>
-        <Link to={`/purchasePage/${_id}`}>
-            <button className='btn btn-sm bg-[#ECBD00] border-none text-white hover:bg-[#ffe371] tracking-widest'>
+        
+            {
+                user.email === email ?
+                <>
+                    <button disabled={true} className='btn btn-sm bg-[#ECBD00] border-none text-white hover:bg-[#ffe371] tracking-widest'>
+                        Purchase
+                    </button>
+                </> : 
+                <>
+                <Link to={`/purchasePage/${_id}`}>
+                    <button className='btn btn-sm bg-[#ECBD00] border-none text-white hover:bg-[#ffe371] tracking-widest'>
                 Purchase
             </button>
-        </Link>
+            </Link>
+                </>
+            }
+            
+        
     </div>
         </div>
 
