@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
 
-    const { signInUser } = useContext(AuthContext);
+    const { user, signInUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const providerGoogle = new GoogleAuthProvider();
 
@@ -17,7 +17,6 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
 
         // sign in
         signInUser(email, password)
@@ -26,6 +25,7 @@ const Login = () => {
                 form.reset();
                 toast.success("User logged in successfully")
                 navigate("/");
+
             })
             .catch((error) => {
                 toast.error(error.message)
@@ -37,6 +37,27 @@ const Login = () => {
         signInWithPopup(auth, providerGoogle)
         .then(result => {
             console.log(result.user)
+
+            const loggedInUser = result.user;
+            const user = {
+                name: loggedInUser.displayName,
+                photoURL: loggedInUser.photoURL,
+                email: loggedInUser.email
+            }
+
+            //  send to backend server
+            fetch("http://localhost:3000/users", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(user)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
+
             toast.success("User logged in successfully");
             navigate("/");
         })

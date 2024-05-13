@@ -4,6 +4,7 @@ import { AuthContext } from '../provider/AuthProvider'
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import FeedBackCard from './FeedBackCard';
+import '../App.css';
 
 const Gallery = () => {
 
@@ -61,6 +62,12 @@ const Gallery = () => {
         <title>Chef-Cuisine || Gallery</title>
       </Helmet>
 
+      <div className='gallery-bg h-[200px] w-10/12 mx-auto my-[50px] rounded-xl flex items-center justify-center'>
+        <div>
+        <h1 className='text-2xl text-white tracking-widest font-semibold'>Galley || Our Customers Feedback</h1>
+        </div>
+      </div>
+
       <div className='flex items-center justify-center min-h-[70vh]'>
           <div className='w-10/12 mx-auto my-[50px] grid grid-cols-1 lg:grid-cols-2 gap-10'>
               { 
@@ -113,13 +120,15 @@ const Gallery = () => {
                 <input className='cursor-pointer' type="submit" value="Add" />
               </button>
               
-              <div className="modal-action">
-      <div method="dialog">
-        <button className="btn">Close</button>
-      </div>
-      </div>
+              
               
             </form>
+
+            <div className="modal-action">
+      <form method="dialog">
+        <button className="btn">Close</button>
+      </form>
+      </div>
           </div>
         </dialog>
       </div>
