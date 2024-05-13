@@ -63,7 +63,7 @@ const PurchasePage = () => {
             if(data.insertedId){
                 toast.success("Your order has confirmed.")
                 form.reset();
-                navigate("/")
+                navigate("/myOrderedFoodItems")
             }
         })
     }

@@ -62,9 +62,8 @@ button{
 }
 button:hover{
     background-color: #ffdc51;
-    scale: 1.2;
 }
 
 .selected{
-    background-color: rgb(255, 84, 45);
+    background-color: #ECBD00;
 }

@@ -7,7 +7,7 @@ const AllFoods = () => {
     const [allFoods, setAllFoods] = useState([]);
     const [totalFoodsCount, setTotalFoodsCount] = useState("");
     const foodsCount = totalFoodsCount.totalFoodsCount
-    const itemsPerPage = 3;
+    const itemsPerPage = 9;
     const numberOfPages = Math.ceil(foodsCount / itemsPerPage)
     const [currentPage, setCurrentPage] = useState(0);
 
@@ -59,14 +59,14 @@ const AllFoods = () => {
         }
     </div>
 
-    <div className='flex items-center justify-center gap-3'>
+    <div className='flex items-center justify-center gap-3 mt-[80px] mb-[30px]'>
 
         <button className='btn btn-sm' onClick={handlePrev}>
             Prev
         </button>
 
         {
-            pages.map(page => <button onClick={() => setCurrentPage(page)} className={currentPage === page && "selected"} key={page}>
+            pages.map(page => <button onClick={() => setCurrentPage(page)} className={currentPage === page ? "selected" : "btn btn-sm"} key={page}>
                 {page}
             </button>)
         }

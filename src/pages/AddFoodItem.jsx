@@ -2,10 +2,13 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../provider/AuthProvider'
 import toast from 'react-hot-toast';
 import '../App.css';
+import { useNavigate } from 'react-router-dom';
 
 const AddFoodItem = () => {
 
     const { user } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const handleAddFoodItem = (e) => {
         e.preventDefault();
@@ -47,6 +50,7 @@ const AddFoodItem = () => {
                 if (data.insertedId) {
                     toast.success("Your item has added")
                     form.reset();
+                    navigate("/myAddedFoodItems")
                 }
             })
     }
