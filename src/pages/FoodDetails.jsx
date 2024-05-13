@@ -44,7 +44,7 @@ const FoodDetails = () => {
             <div className='flex items-center justify-end'>
         
             {
-                user.email === email ?
+                user?.email === email ?
                 <>
                     <button disabled={true} className='btn btn-sm bg-[#ECBD00] border-none text-white hover:bg-[#ffe371] tracking-widest'>
                         Purchase
