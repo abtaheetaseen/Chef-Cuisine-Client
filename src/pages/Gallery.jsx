@@ -1,11 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { AuthContext } from '../provider/AuthProvider'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import FeedBackCard from './FeedBackCard';
 
 const Gallery = () => {
 
+  const navigate = useNavigate();
+  const [myFeedBacks, setMyFeedBacks] = useState([]);
+  console.log(myFeedBacks)
   const { user } = useContext(AuthContext);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/feedbacks")
+        .then(res => res.json())
+        .then(data => {
+            setMyFeedBacks(data);
+        })
+    }, [])
 
   const handleGalleryForm = (e) => {
     e.preventDefault();
@@ -20,9 +33,27 @@ const Gallery = () => {
       imageURL,
       "email": user?.email
     }
-
     console.log(userFeedBack)
+
+    fetch("http://localhost:3000/feedbacks", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(userFeedBack)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      if(data.insertedId){
+        toast.success("Thanks for your feedback.")
+        form.reset();
+        navigate("/")
+      }
+    })
   }
+
+  
 
   return (
     <>
@@ -30,8 +61,16 @@ const Gallery = () => {
         <title>Chef-Cuisine || Gallery</title>
       </Helmet>
 
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
       <div className='flex items-center justify-center min-h-[70vh]'>
+          <div className='w-10/12 mx-auto my-[50px] grid grid-cols-1 lg:grid-cols-2 gap-10'>
+              { 
+                myFeedBacks?.map(feedback => <FeedBackCard key={feedback._id} feedback={feedback} />)
+              }
+          </div>
+      </div>
+
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+      <div className='flex items-center justify-center'>
         <div>
 
           {
@@ -69,17 +108,17 @@ const Gallery = () => {
                 <label className="text-gray-700 dark:text-gray-200" htmlFor="imageURL">Image URL</label>
                 <input id="imageURL" name='imageURL' type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required />
               </div>
-              <div className='flex items-center justify-between'>
-              <button className="btn tracking-widest bg-[#ECBD00] border-none text-white hover:bg-[#ffe371]">
-                <input type="submit" value="Add" />
-              </button>
-              <Link to="/">
-              <button className='btn tracking-widest btn-neutral'>
-                  Home
-              </button>
-              </Link>
               
-              </div>
+              <button className="btn tracking-widest bg-[#ECBD00] border-none text-white hover:bg-[#ffe371]">
+                <input className='cursor-pointer' type="submit" value="Add" />
+              </button>
+              
+              <div className="modal-action">
+      <div method="dialog">
+        <button className="btn">Close</button>
+      </div>
+      </div>
+              
             </form>
           </div>
         </dialog>
