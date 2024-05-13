@@ -4,6 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
 
@@ -102,6 +103,11 @@ const Register = () => {
     }
 
     return (
+        <>
+        <Helmet>
+        <title>Chef-Cuisine || Register</title>
+    </Helmet>
+        
         <section className="bg-white min-h-screen">
             <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
                 <form onSubmit={handleRegister} className="w-full max-w-md">
@@ -181,7 +187,9 @@ const Register = () => {
                     </div>
                 </form>
             </div>
+
         </section>
+        </>
     )
 }
 

@@ -3,6 +3,7 @@ import '../App.css';
 import AllFood from './AllFood';
 import { useNavigation } from 'react-router-dom';
 import Loader from '../components/Loader';
+import { Helmet } from 'react-helmet-async';
 
 const AllFoods = () => {
 
@@ -59,6 +60,9 @@ const AllFoods = () => {
 
   return (
     <>
+    <Helmet>
+        <title>Chef-Cuisine || All Foods</title>
+    </Helmet>
       <div className='allFood-bg h-[200px] w-10/12 mx-auto my-[50px] rounded-xl flex items-center justify-center'>
         <div>
         <h1 className='text-2xl text-white tracking-widest font-semibold'>Explore Our All Food</h1>

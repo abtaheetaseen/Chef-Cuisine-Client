@@ -4,6 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
 
@@ -45,6 +46,11 @@ const Login = () => {
     }
 
   return (
+    <>
+    <Helmet>
+        <title>Chef-Cuisine || Login</title>
+    </Helmet>
+    
     <section className="bg-white min-h-screen">
     <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
         <form onSubmit={handleLogin} className="w-full max-w-md">
@@ -98,6 +104,7 @@ const Login = () => {
         </form>
     </div>
 </section>
+</>
   )
 }
 

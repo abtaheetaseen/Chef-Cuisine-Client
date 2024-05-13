@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const PurchasePage = () => {
 
@@ -73,6 +74,11 @@ const PurchasePage = () => {
     const displayTime = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
 
   return (
+    <>
+    <Helmet>
+        <title>Chef-Cuisine || Purchase</title>
+    </Helmet>
+    
     <section className="min-h-[90vh] flex items-center justify-center">
 
 <div>
@@ -116,6 +122,7 @@ const PurchasePage = () => {
     </form>
     </div>
 </section>
+</>
   )
 }
 

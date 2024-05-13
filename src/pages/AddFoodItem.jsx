@@ -3,6 +3,7 @@ import { AuthContext } from '../provider/AuthProvider'
 import toast from 'react-hot-toast';
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const AddFoodItem = () => {
 
@@ -57,6 +58,9 @@ const AddFoodItem = () => {
 
     return (
         <>
+        <Helmet>
+        <title>Chef-Cuisine || Add Item</title>
+    </Helmet>
             <div className='addFood-bg h-[200px] w-10/12 mx-auto my-[50px] rounded-xl flex items-center justify-center'>
                 <div>
                     <h1 className='text-2xl text-white tracking-widest font-semibold'>Add Food Item</h1>

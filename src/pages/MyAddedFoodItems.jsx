@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
 import MyAddedFoodItemCard from './MyAddedFoodItemCard';
 import Loader from '../components/Loader';
+import { Helmet } from 'react-helmet-async';
 
 const MyAddedFoodItems = () => {
 
@@ -24,6 +25,11 @@ const MyAddedFoodItems = () => {
 
 
     return (
+        <>
+            <Helmet>
+        <title>Chef-Cuisine || My Items</title>
+    </Helmet>
+    
         <div>
             <div>
                 <div className='text-center w-10/12 mx-auto my-[50px]'>
@@ -41,6 +47,7 @@ const MyAddedFoodItems = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

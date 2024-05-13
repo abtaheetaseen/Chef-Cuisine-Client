@@ -3,6 +3,7 @@ import { AuthContext } from '../provider/AuthProvider'
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const MyOrderedFoodItems = () => {
 
@@ -60,6 +61,10 @@ const MyOrderedFoodItems = () => {
 
     if(myOrderedFoodItems.length === 0){
         return (
+            <>
+            <Helmet>
+        <title>Chef-Cuisine || My Orders</title>
+    </Helmet>
             <div className='min-h-[70vh] flex items-center justify-center'>
                 <div>
                     <h1 className='text-2xl font-medium text-center'>You have not placed any order. <br /> Hurry Up!</h1>
@@ -72,12 +77,16 @@ const MyOrderedFoodItems = () => {
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 
 
   return (
     <>
+    <Helmet>
+        <title>Chef-Cuisine || My Orders</title>
+    </Helmet>
     <div className='lg:min-h-[70vh] lg:flex lg:items-center lg:justify-center'>
         <div>
     <div className='text-center w-10/12 mx-auto my-[50px]'>

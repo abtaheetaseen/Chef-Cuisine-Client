@@ -1,11 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
-import { AuthContext } from '../provider/AuthProvider';
 import profile from "../assets/images/profile.png"
+import { Helmet } from 'react-helmet-async';
 
 const FoodDetails = () => {
-
-    const {user} = useContext(AuthContext);
 
     const singleFood = useLoaderData();
     console.log(singleFood)
@@ -13,6 +11,10 @@ const FoodDetails = () => {
     const {_id, foodName, foodImage, category, price, description, name, email, foodOrigin} = singleFood;
 
   return (
+    <>
+    <Helmet>
+        <title>Chef-Cuisine || {foodName.toUpperCase()}</title>
+    </Helmet>
     <div className="w-10/12 mx-auto my-[100px] md:w-[60%] lg:w-[50%] overflow-hidden bg-white rounded-lg shadow-md">
     <img className="object-cover w-full h-64" src={foodImage} alt="Article" />
 
@@ -47,6 +49,7 @@ const FoodDetails = () => {
 
     </div>
 </div>
+</>
   )
 }
 

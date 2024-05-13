@@ -3,6 +3,7 @@ import '../App.css';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const UpdatePage = () => {
 
@@ -57,6 +58,9 @@ const UpdatePage = () => {
 
     return (
         <>
+        <Helmet>
+        <title>Chef-Cuisine || Update</title>
+    </Helmet>
             <div className='updateFood-bg h-[200px] w-10/12 mx-auto my-[50px] rounded-xl flex items-center justify-center'>
                 <div>
                     <h1 className='text-2xl text-white tracking-widest font-semibold'>Update Food Item</h1>
