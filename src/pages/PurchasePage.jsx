@@ -116,8 +116,16 @@ const PurchasePage = () => {
         </div>
 
         <div className="flex justify-end mt-6">
-        
+        {
+            quantity === 0 ? 
+            <>
+                <input disabled={true} className="bg-gray-300 p-2 rounded-xl text-gray-400" type="submit" value="Purchase" />
+            </> :
+            <>
                 <input className="cursor-pointer bg-[#ECBD00] p-2 rounded-xl text-white hover:text-[#ECBD00] hover:bg-transparent hover:border-2 hover:border-[#ECBD00]" type="submit" value="Purchase" />
+            </>
+        }
+                
         </div>
     </form>
     </div>
