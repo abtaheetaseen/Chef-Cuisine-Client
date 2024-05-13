@@ -5,6 +5,7 @@ import Chef from '../components/Chef'
 import TopFoodSection from '../components/TopFoodSection'
 
 const Home = () => {
+
   return (
     <>
       <Hero />

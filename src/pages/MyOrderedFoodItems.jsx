@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider'
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MyOrderedFoodItems = () => {
 
@@ -57,6 +58,24 @@ const MyOrderedFoodItems = () => {
     const showDate = new Date();
     const displayTodaysDate = showDate.getDate()+"/"+(showDate.getMonth()+1)+"/"+showDate.getFullYear();
 
+    if(myOrderedFoodItems.length === 0){
+        return (
+            <div className='min-h-[70vh] flex items-center justify-center'>
+                <div>
+                    <h1 className='text-2xl font-medium text-center'>You have not placed any order. <br /> Hurry Up!</h1>
+                    <div className='flex items-center justify-center mt-5'>
+                    <Link to="/allFoods">
+                        <button className='btn btn-sm bg-[#ECBD00] text-white hover:bg-[#ffda48]'>
+                            Order Now
+                        </button>
+                    </Link>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+
   return (
     <>
     <div className='lg:min-h-[70vh] lg:flex lg:items-center lg:justify-center'>
@@ -80,7 +99,8 @@ const MyOrderedFoodItems = () => {
       </tr>
     </thead>
     <tbody>
-      {
+      { 
+      
         myOrderedFoodItems.map(food => (
             <tr key={food._id}>
         <td><img className='h-[80px] rounded-lg' src={food.foodImage} alt="" /></td>

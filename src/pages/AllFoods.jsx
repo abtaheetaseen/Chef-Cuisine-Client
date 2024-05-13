@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import '../App.css';
 import AllFood from './AllFood';
+import { useNavigation } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 const AllFoods = () => {
 
     const [allFoods, setAllFoods] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [totalFoodsCount, setTotalFoodsCount] = useState("");
     const foodsCount = totalFoodsCount.totalFoodsCount
     const itemsPerPage = 9;
@@ -22,6 +25,7 @@ const AllFoods = () => {
         .then(res => res.json())
         .then(data => {
             setAllFoods(data);
+            setLoading(false);
         })
     }, [currentPage, itemsPerPage])
 
@@ -45,6 +49,14 @@ const AllFoods = () => {
         }
     }
 
+    const navigation = useNavigation();
+    if(navigation.state === "loading") {
+        return <div className='flex items-center justify-center'>
+    <div className="loading loading-infinity loading-lg min-h-screen "></div>
+</div> 
+    }
+
+
   return (
     <>
       <div className='allFood-bg h-[200px] w-10/12 mx-auto my-[50px] rounded-xl flex items-center justify-center'>
@@ -53,11 +65,15 @@ const AllFoods = () => {
         </div>
       </div>
 
+<div>
+    { loading ? <Loader /> : (
       <div className='w-10/12 mx-auto mt-0 mb-[50px] grid grid-cols-1 lg:grid-cols-2 gap-10'>
         {
             allFoods.map(food => <AllFood food={food} key={food._id} />)
         }
-    </div>
+    </div>)
+    }
+</div>
 
     <div className='flex items-center justify-center gap-3 mt-[80px] mb-[30px]'>
 
