@@ -31,6 +31,9 @@ const PurchasePage = () => {
         const buyerName = form.name.value;
         const buyerEmail = form.email.value;
         const buyerQuantity = parseInt(form.quantity.value);
+        if(buyerQuantity === 0){
+            return toast.error("Your quantity must be at least one.")
+        }
         if(buyerQuantity > quantity){
             return toast.error("Item is not available")
         }

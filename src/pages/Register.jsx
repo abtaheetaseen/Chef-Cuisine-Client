@@ -163,7 +163,7 @@ const Register = () => {
                     </div>
 
                     <div className="mt-6">
-                        <input className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#ECBD00] rounded-lg hover:bg-transparent hover:text-black hover:border-2 hover:border-[#ECBD00]" type="submit" value="Register" />
+                        <input className="cursor-pointer w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#ECBD00] rounded-lg hover:bg-transparent hover:text-black hover:border-2 hover:border-[#ECBD00]" type="submit" value="Register" />
 
 
                         <p className="mt-4 text-center text-gray-600 dark:text-gray-400">or register with</p>
