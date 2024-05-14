@@ -7,10 +7,12 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Assignment_ID: assignment_category_0005
-Website Name: Chef-Cuisine
-Live Link(Client-Side): https://chef-cuisine-f99ae.web.app/
-Live Link(Server-Side): https://assignment-11-server-lac-beta.vercel.app/
+Info:
+1. Assignment_ID: assignment_category_0005
+2. Website Name: Chef-Cuisine
+3. Live Link(Client-Side): https://chef-cuisine-f99ae.web.app/
+4. Live Link(Server-Side): https://assignment-11-server-lac-beta.vercel.app/
+
 
 Features: 
 1. This is a single page and a restaurant based website.
