@@ -55,7 +55,7 @@ const Register = () => {
                     })
 
                 //  send to backend server
-                fetch("http://localhost:3000/users", {
+                fetch("https://assignment-11-server-lac-beta.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"
@@ -80,7 +80,7 @@ const Register = () => {
                 console.log(result.user)
                 toast.success("User registered successfully");
                 //  send to backend server
-                fetch("http://localhost:3000/users", {
+                fetch("https://assignment-11-server-lac-beta.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"

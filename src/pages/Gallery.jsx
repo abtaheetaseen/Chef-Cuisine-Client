@@ -14,7 +14,7 @@ const Gallery = () => {
   const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch("http://localhost:3000/feedbacks")
+        fetch("https://assignment-11-server-lac-beta.vercel.app/feedbacks")
         .then(res => res.json())
         .then(data => {
             setMyFeedBacks(data);
@@ -36,7 +36,7 @@ const Gallery = () => {
     }
     console.log(userFeedBack)
 
-    fetch("http://localhost:3000/feedbacks", {
+    fetch("https://assignment-11-server-lac-beta.vercel.app/feedbacks", {
       method: "POST",
       headers: {
         "content-type": "application/json"

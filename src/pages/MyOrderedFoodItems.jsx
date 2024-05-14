@@ -12,7 +12,7 @@ const MyOrderedFoodItems = () => {
 
     const {user} = useContext(AuthContext);
 
-    const url = `http://localhost:3000/orders?email=${user?.email}`;
+    const url = `https://assignment-11-server-lac-beta.vercel.app/orders?email=${user?.email}`;
     useEffect(() => {
         fetch(url, {credentials: "include"})
         .then(res => res.json())
@@ -34,7 +34,7 @@ const MyOrderedFoodItems = () => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-            fetch(`http://localhost:3000/orders/${id}`, {
+            fetch(`https://assignment-11-server-lac-beta.vercel.app/orders/${id}`, {
             method: "DELETE"
         })
         .then(res => res.json())

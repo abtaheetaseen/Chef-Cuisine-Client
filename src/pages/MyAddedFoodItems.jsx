@@ -12,7 +12,7 @@ const MyAddedFoodItems = () => {
     const [loading, setLoading] = useState(true);
     console.log(myAddedFoodItems)
 
-    const url = `http://localhost:3000/foods?email=${user?.email}`;
+    const url = `https://assignment-11-server-lac-beta.vercel.app/foods?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
