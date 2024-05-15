@@ -4,6 +4,8 @@ import AllFood from './AllFood';
 import { useNavigation } from 'react-router-dom';
 import Loader from '../components/Loader';
 import { Helmet } from 'react-helmet-async';
+import SearchDataCard from './SearchDataCard';
+import toast from 'react-hot-toast';
 
 const AllFoods = () => {
 
@@ -14,6 +16,10 @@ const AllFoods = () => {
     const itemsPerPage = 9;
     const numberOfPages = Math.ceil(foodsCount / itemsPerPage)
     const [currentPage, setCurrentPage] = useState(0);
+
+    const [inputValue, setInputValue] = useState("");
+    const [searchData, setSearchData] = useState([]);
+    console.log(searchData)
 
     const pages = [];
     for(let i = 0; i < numberOfPages; i++){
@@ -30,6 +36,7 @@ const AllFoods = () => {
         })
     }, [currentPage, itemsPerPage])
 
+
     useEffect(() => {
         fetch(`https://assignment-11-server-lac-beta.vercel.app/totalFoodsCount`)
         .then(res => res.json())
@@ -37,6 +44,22 @@ const AllFoods = () => {
             setTotalFoodsCount(data);
         })
     }, [])
+
+
+    const fetchSearchData = async (inputValue) => {
+        const res = await fetch(`https://assignment-11-server-lac-beta.vercel.app/allFoods?foodName=${inputValue}`);
+        const result = await res.json();
+        setSearchData(result)
+
+    }
+
+    // useEffect(() => {
+    //     fetch(`https://assignment-11-server-lac-beta.vercel.app/allFoods?foodName=${inputValue}`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         setSearchData(data);
+    //     })
+    // }, [])
 
     const handlePrev = () => {
         if(currentPage > 0){
@@ -57,6 +80,14 @@ const AllFoods = () => {
 </div> 
     }
 
+    const handleInputSearch = () => {
+        console.log("input value : ", inputValue)
+        if(inputValue === ""){
+            return toast.error("Search Food Name")
+        }
+        fetchSearchData(inputValue)
+    }
+
 
   return (
     <>
@@ -68,6 +99,25 @@ const AllFoods = () => {
         <h1 className='text-2xl text-white tracking-widest font-semibold'>Explore Our All Food</h1>
         </div>
       </div>
+
+    {/* search input */}
+      <div className='w-10/12 mx-auto mt-0 mb-10'>
+      <label className="input input-bordered flex items-center gap-2">
+  <input onChange={(e) => setInputValue(e.target.value)} type="text" className="grow" placeholder="Search" />
+  <button onClick={handleInputSearch} className='btn btn-sm'>
+  <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
+  </button>
+</label>
+      </div>
+
+      {/* search value */}
+      <div className='flex items-center justify-center mt-0 mb-[50px]'>
+        {
+            searchData.map(data => <SearchDataCard data={data} key={data._id} />)
+        }
+      </div>
+
+      <hr className='mb-[50px] border-gray-500'/>
 
 <div>
     { loading ? <Loader /> : (
