@@ -10,7 +10,7 @@ const MyReservation = () => {
 
     const {user} = useContext(AuthContext);
 
-    const url = `http://localhost:3000/reservations?email=${user?.email}`;
+    const url = `https://assignment-11-server-lac-beta.vercel.app/reservations?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
         .then(res => res.json())
@@ -32,7 +32,7 @@ const MyReservation = () => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-            fetch(`http://localhost:3000/reservations/${id}`, {
+            fetch(`https://assignment-11-server-lac-beta.vercel.app/reservations/${id}`, {
             method: "DELETE"
         })
         .then(res => res.json())

@@ -68,21 +68,21 @@ export const Router = createBrowserRouter([
             {
                 path: "/allFoods/:id",
                 element: <FoodDetails />,
-                loader: ({params}) => fetch(`http://localhost:3000/allFoods/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-lac-beta.vercel.app/allFoods/${params.id}`)
             },
             {
                 path: "/purchasePage/:id",
                 element: <PrivateRoute>
                     <PurchasePage />
                 </PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:3000/allFoods/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-lac-beta.vercel.app/allFoods/${params.id}`)
             },
             {
                 path: "/updatePage/:id",
                 element: <PrivateRoute>
                     <UpdatePage />
                 </PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:3000/allFoods/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-lac-beta.vercel.app/allFoods/${params.id}`)
             }
         ]
     }

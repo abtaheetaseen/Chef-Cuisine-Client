@@ -11,7 +11,7 @@ Info:
 1. Assignment_ID: assignment_category_0005
 2. Website Name: Chef-Cuisine
 3. Live Link(Client-Side): https://chef-cuisine-f99ae.web.app/
-4. Live Link(Server-Side): http://localhost:3000/
+4. Live Link(Server-Side): https://assignment-11-server-lac-beta.vercel.app/
 
 
 Features: 

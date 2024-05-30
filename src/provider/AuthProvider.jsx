@@ -44,7 +44,7 @@ const AuthProvider = ({children}) => {
 
             // if user exists then issue a token
             // if(createUser) {
-            //     fetch("http://localhost:3000/jwt", {
+            //     fetch("https://assignment-11-server-lac-beta.vercel.app/jwt", {
             //         method: "POST",
             //         credentials: "include",
             //         headers: {
@@ -56,7 +56,7 @@ const AuthProvider = ({children}) => {
 
 
 
-                // axios.post("http://localhost:3000/jwt", loggedUser, {withCredentials: true})
+                // axios.post("https://assignment-11-server-lac-beta.vercel.app/jwt", loggedUser, {withCredentials: true})
                 // .then(res => {
                 //     console.log("token response", res.data)
                 // })
@@ -65,7 +65,7 @@ const AuthProvider = ({children}) => {
 
 
             // } else {
-            //     axios.post("http://localhost:3000/logout", loggedUser, {withCredentials: true})
+            //     axios.post("https://assignment-11-server-lac-beta.vercel.app/logout", loggedUser, {withCredentials: true})
             //     .then(res => {
             //         console.log(res.data);
             //     })

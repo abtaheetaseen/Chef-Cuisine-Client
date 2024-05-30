@@ -25,7 +25,7 @@ const BookTable = () => {
             time
         }
 
-        fetch("http://localhost:3000/reservations", {
+        fetch("https://assignment-11-server-lac-beta.vercel.app/reservations", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
