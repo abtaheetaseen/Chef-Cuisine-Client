@@ -24,7 +24,7 @@ const AllFoods = () => {
     console.log(pages);
 
     useEffect(() => {
-        fetch(`https://assignment-11-server-lac-beta.vercel.app/allFoods?page=${currentPage}&size=${itemsPerPage}&search=${searchValue}`)
+        fetch(`http://localhost:3000/allFoods?page=${currentPage}&size=${itemsPerPage}&search=${searchValue}`)
             .then(res => res.json())
             .then(data => {
                 setAllFoods(data);
@@ -34,7 +34,7 @@ const AllFoods = () => {
 
 
     useEffect(() => {
-        fetch(`https://assignment-11-server-lac-beta.vercel.app/totalFoodsCount`)
+        fetch(`http://localhost:3000/totalFoodsCount`)
             .then(res => res.json())
             .then(data => {
                 setTotalFoodsCount(data);

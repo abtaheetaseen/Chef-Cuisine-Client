@@ -13,6 +13,7 @@ import MyOrderedFoodItems from "../pages/MyOrderedFoodItems";
 import FoodDetails from "../pages/FoodDetails";
 import PurchasePage from "../pages/PurchasePage";
 import UpdatePage from "../pages/UpdatePage";
+import MyReservation from "../pages/MyReservation";
 
 export const Router = createBrowserRouter([
     {
@@ -59,23 +60,29 @@ export const Router = createBrowserRouter([
                 </PrivateRoute>
             },
             {
+                path: "/myReservation",
+                element: <PrivateRoute>
+                    <MyReservation />
+                </PrivateRoute>
+            },
+            {
                 path: "/allFoods/:id",
                 element: <FoodDetails />,
-                loader: ({params}) => fetch(`https://assignment-11-server-lac-beta.vercel.app/allFoods/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:3000/allFoods/${params.id}`)
             },
             {
                 path: "/purchasePage/:id",
                 element: <PrivateRoute>
                     <PurchasePage />
                 </PrivateRoute>,
-                loader: ({params}) => fetch(`https://assignment-11-server-lac-beta.vercel.app/allFoods/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:3000/allFoods/${params.id}`)
             },
             {
                 path: "/updatePage/:id",
                 element: <PrivateRoute>
                     <UpdatePage />
                 </PrivateRoute>,
-                loader: ({params}) => fetch(`https://assignment-11-server-lac-beta.vercel.app/allFoods/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:3000/allFoods/${params.id}`)
             }
         ]
     }

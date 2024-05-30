@@ -4,6 +4,7 @@ import Services from '../components/Services'
 import Chef from '../components/Chef'
 import TopFoodSection from '../components/TopFoodSection'
 import { Helmet } from 'react-helmet-async'
+import BookTable from '../components/BookTable'
 
 const Home = () => {
 
@@ -16,6 +17,7 @@ const Home = () => {
       <Services />
       <TopFoodSection />
       <Chef />
+      <BookTable />
     </>
   )
 }

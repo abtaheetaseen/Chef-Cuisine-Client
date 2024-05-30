@@ -46,7 +46,7 @@ const Login = () => {
             }
 
             //  send to backend server
-            fetch("https://assignment-11-server-lac-beta.vercel.app/users", {
+            fetch("http://localhost:3000/users", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

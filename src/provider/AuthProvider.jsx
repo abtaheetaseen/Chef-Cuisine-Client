@@ -35,26 +35,41 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, createUser => {
 
-            const userEmail = createUser?.email || user?.email;
-            const loggedUser = {email: userEmail};
+            // const userEmail = createUser?.email || user?.email;
+            // const loggedUser = {email: userEmail};
 
             console.log("observer", createUser);
             setUser(createUser);
             setLoading(false)
 
             // if user exists then issue a token
-            if(createUser) {
-                
-                axios.post("https://assignment-11-server-lac-beta.vercel.app/jwt", loggedUser, {withCredentials: true})
-                .then(res => {
-                    console.log("token response", res.data)
-                })
-            } else {
-                axios.post("https://assignment-11-server-lac-beta.vercel.app/logout", loggedUser, {withCredentials: true})
-                .then(res => {
-                    console.log(res.data);
-                })
-            }
+            // if(createUser) {
+            //     fetch("http://localhost:3000/jwt", {
+            //         method: "POST",
+            //         credentials: "include",
+            //         headers: {
+            //             "content-type": "application/json"
+            //         },
+            //         body: JSON.stringify(loggedUser)
+            //     })
+
+
+
+
+                // axios.post("http://localhost:3000/jwt", loggedUser, {withCredentials: true})
+                // .then(res => {
+                //     console.log("token response", res.data)
+                // })
+
+
+
+
+            // } else {
+            //     axios.post("http://localhost:3000/logout", loggedUser, {withCredentials: true})
+            //     .then(res => {
+            //         console.log(res.data);
+            //     })
+            // }
         })
 
         return () => {

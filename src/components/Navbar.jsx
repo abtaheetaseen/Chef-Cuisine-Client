@@ -100,6 +100,12 @@ const Navbar = () => {
             </li>
             </NavLink>
 
+            <NavLink to="/myReservation">
+            <li>
+              <div>My Reservations</div>
+            </li>
+            </NavLink>
+
             {/* <li className=''>
               <button onClick={handleLogOut} className='btn btn-sm btn-error text-white block text-center'>Logout</button>
             </li> */}

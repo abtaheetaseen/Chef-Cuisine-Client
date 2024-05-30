@@ -10,7 +10,7 @@ const TopFoodSection = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("https://assignment-11-server-lac-beta.vercel.app/foods")
+        fetch("http://localhost:3000/foods")
         .then(res => res.json())
         .then(data => {
             setFoods(data);

@@ -54,7 +54,7 @@ const PurchasePage = () => {
 
         console.log(orderedFood)
 
-        fetch("https://assignment-11-server-lac-beta.vercel.app/orders", {
+        fetch("http://localhost:3000/orders", {
             method: "POST",
                     headers: {
                         "content-type": "application/json"
