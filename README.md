@@ -1,22 +1,20 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Website: Chef-Cuisine
+2. Live: https://chef-cuisine-f99ae.web.app/
+3. GitHub(client): https://github.com/abtaheetaseen/Chef-Cuisine-Client
+4. GitHub(server): https://github.com/abtaheetaseen/Chef-Cuisine-Server
+  
+Chef-Cuisine is a restaurant-based website where users can see a restaurant's cuisine and order from there. React is mainly used for developing interfaces for the client side. I use Node.js and MongoDB for backend development.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-Info:
-1. Assignment_ID: assignment_category_0005
-2. Website Name: Chef-Cuisine
-3. Live Link(Client-Side): https://chef-cuisine-f99ae.web.app/
-4. Live Link(Server-Side): https://assignment-11-server-lac-beta.vercel.app/
-
+To run locally:
+1. Click the green "Code" button and copy the URL.
+2. Open a terminal and navigate to the directory where you want to clone the repository.
+3. Run this command: git clone and repo url
+4. To install dependencies, use npm install command.
+5. To run the project, use npm start command.
 
 Features: 
-1. This is a single page and a restaurant based website.
-2. A user can add and update their specific food and it stores in server. That user cannot access or update or delete other's added food.
-3. A user can order food from this website and it will stored in database. But this user cannot order his/her own food.
-4. For authentication, I use firebase authentication.
-5. A user can share his/her thoughts about any kind of experiences.
+1. There is a My Added Food Items route where a user can see their every added food. The user can update and delete their food items by using the PUT and DELETE methods. My Order Page is also available for logged-in users. On this page, users can see their ordered food items.
+2. JWT is implemented on the ordered food item page.
+3. I use both Firebase Google and Firebase email/password-based authentication.
